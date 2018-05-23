@@ -7,33 +7,29 @@ footer {
   padding: 0 20px;
   color: $color-page-footer-text;
   transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: $color-page-footer-text-hover;
+
+    a {
+      color: $color-page-footer-text-hover;
+    }
+  }
+
+  a {
+    color: $color-page-footer-text;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-page-footer-link-hover;
+    }
+  }
 }
 
 @media screen and (min-width: 480px) {
   footer {
     flex-flow: row nowrap;
   }
-}
-
-footer a {
-  color: $color-page-footer-text;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-footer:hover {
-  color: $color-page-footer-text-hover;
-}
-
-footer:hover a {
-  color: $color-page-footer-text-hover;
-}
-
-footer a:hover {
-  text-decoration: underline;
-  color: $color-page-footer-link-hover;
-}
-
-footer a:visited {
-  color: $color-options-background;
 }
