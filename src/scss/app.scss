@@ -1,0 +1,10 @@
+body {
+  background-color: $color-page-background;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+}

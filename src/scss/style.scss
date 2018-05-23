@@ -1,0 +1,15 @@
+// Import configs
+@import "config/settings";
+
+// Import app style
+@import "app";
+
+// Import page parts
+@import "page/header";
+@import "page/main";
+@import "page/footer";
+
+// Import components
+@import "components/game";
+@import "components/board";
+@import "components/tile";
