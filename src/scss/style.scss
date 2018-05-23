@@ -1,10 +1,8 @@
 // Import configs
 @import "config/settings";
 
-// Import app style
-@import "app";
-
 // Import page parts
+@import "page/app";
 @import "page/header";
 @import "page/main";
 @import "page/footer";
