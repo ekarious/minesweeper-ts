@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mine Sweeper</title>
+  <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Mine Sweeper</h1>
+      <p id="timer">00:00</p>
+    </header>
+    <div id="game-menu" class="no-current-game">
+      <button id="btn-game-new" class="btn">New Game</button>
+      <div id="difficulties">
+        <button id="btn-game-easy" class="btn btn-smaller btn-difficulties">Easy</button>
+        <br>
+        <button id="btn-game-normal" class="btn btn-smaller btn-difficulties">Normal</button>
+        <br>
+        <button id="btn-game-hard" class="btn btn-smaller btn-difficulties">Hard</button>
+      </div>
+      <button id="btn-game-abord" class="btn hidden">Abord</button>
+    </div>
+    <div id="counter">
+      0
+    </div>
+    <main>
+      <div id="board"></div>
+    </main>
+    <footer>
+      <div>
+        <p>Copyright 2018 &copy;
+          <a href="www.yannschmidt.com">Yann Schmidt</a> -
+          <a href="#">Mine Sweeper Challenge</a> -
+          <a href="https://github.com/Kitefr/mine-sweeper-javascript">Source code</a> - version 1.0.0
+        </p>
+      </div>
+      <div>
+        <!-- Right Side -->
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

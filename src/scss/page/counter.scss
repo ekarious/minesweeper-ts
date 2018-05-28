@@ -1,0 +1,23 @@
+#counter {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding-right: 20px;
+  padding-top: 20px;
+  font-size: 1.5rem;
+  color: $color-menu-link;
+  transition: color 0.3s ease-in-out;
+  text-align: right;
+
+  &.active {
+    color: $color-menu-link-active;
+  }
+
+  &.success {
+    color: $color-success;
+  }
+
+  &.failure {
+    color: $color-failure;
+  }
+}
