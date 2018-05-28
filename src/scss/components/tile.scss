@@ -1,0 +1,53 @@
+.tile {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-page-footer-text-hover;
+  cursor: pointer;
+
+  p {
+    visibility: hidden;
+    cursor: default;
+    user-select: none;
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    outline: 1px dashed #212121;
+    outline-offset: -1px;
+  }
+
+  &.color1 {
+    background-color: $color-tile-color1;
+  }
+  &.color2 {
+    background-color: $color-tile-color2;
+  }
+
+  &.flagged {
+    background-color: $color-tile-flagged !important;
+    // background: url("../../images/flag.png") no-repeat 30px 30px;
+  }
+  &.revealed {
+    background: $color-tile-revealed !important;
+    cursor: auto;
+
+    p {
+      visibility: initial;
+    }
+  }
+
+  &.success {
+    background-color: $color-success !important;
+  }
+
+  &.failure {
+    background-color: $color-failure !important;
+  }
+
+  &.mined {
+    background-color: red !important;
+  }
+}

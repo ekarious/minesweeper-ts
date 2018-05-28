@@ -6,8 +6,10 @@
 @import "page/header";
 @import "page/main";
 @import "page/footer";
+@import "page/game-menu";
+@import "page/counter";
+@import "page/timer";
 
 // Import components
-@import "components/game";
 @import "components/board";
 @import "components/tile";

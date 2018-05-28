@@ -1,0 +1,58 @@
+#game-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-top: 20px;
+
+  button {
+    border: none;
+    font-size: 1.3rem;
+    margin: 5px;
+    font-family: $font-title;
+    color: $color-menu-link;
+    transition: color 0.3s ease-in-out;
+    background: transparent;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-menu-link-hover;
+    }
+
+    &.active {
+      cursor: pointer;
+      color: $color-menu-link-active;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    &.btn-smaller {
+      font-size: 1.1rem;
+    }
+  }
+
+  #difficulties {
+    font-size: 1.1rem;
+    display: none;
+
+    &.active {
+      display: block !important;
+    }
+  }
+
+  &.no-current-game {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    #difficulties.active {
+      width: 100%;
+    }
+  }
+}
