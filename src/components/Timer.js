@@ -63,6 +63,7 @@ export default class Timer {
     this.time = 0;
     this._stopped = true;
     this.element.classList.remove("stopped");
+    this.element.classList.remove("success");
     this.element.innerHTML = this.formatted;
   }
 }

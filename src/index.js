@@ -13,6 +13,7 @@ const newGameBtn = document.querySelector("#btn-game-new");
 const abordGameBtn = document.querySelector("#btn-game-abord");
 const difficultiesSection = document.querySelector("#difficulties");
 const difficultiesBtnList = document.querySelectorAll("#difficulties button");
+const counter = document.querySelector("#counter");
 
 const game = new Game();
 
@@ -35,6 +36,8 @@ window.addEventListener("load", () => {
   abordGameBtn.addEventListener("click", () => {
     if (game.isStarted) {
       game.stop();
+      game._board.element.classList.add("disabled");
+      counter.classList.add("failure");
     }
   });
 

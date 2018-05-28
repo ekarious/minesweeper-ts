@@ -74,6 +74,7 @@ module.exports = (env, argv) => {
       hot: true,
       open: true
     },
+    devtool: "cheap-source-map",
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/index.html",

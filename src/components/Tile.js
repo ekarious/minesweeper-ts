@@ -117,6 +117,7 @@ export default class Tile {
 
       elt.isRevealed = true;
       elt.element.classList.add("revealed");
+      this.parent.parent.scoreIncrement();
 
       if (elt.neighborMineCount === 0 && recursive) {
         this._revealAdjacents(elt);
@@ -147,7 +148,7 @@ export default class Tile {
           return this.parent.revealBoardMines();
         }
 
-        this._revealAdjacents(this, false);
+        this._revealAdjacents(this); // TODO: test this
       });
     }
   }
@@ -170,6 +171,7 @@ export default class Tile {
     if (event.which === 1) {
       this.isRevealed = true;
       this.isFlagged = false;
+      this.parent.parent.scoreIncrement();
 
       if (this.isMined) {
         return this.parent.revealBoardMines();

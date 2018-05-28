@@ -14,6 +14,7 @@ export default class Board {
     this.parent = parent;
     this.boardData = [];
     this.element = document.querySelector("#board");
+    this.element.classList.remove("disabled");
     this.size = [x, y];
     this.mineCount = 0;
   }
@@ -153,5 +154,7 @@ export default class Board {
     });
     this.parent.setGameOver = true;
     this.parent.stop();
+    this.element.classList.add("disabled");
+    counter.classList.add("failure");
   }
 }

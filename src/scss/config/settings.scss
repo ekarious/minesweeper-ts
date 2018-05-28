@@ -13,8 +13,8 @@ $color-menu-link: #b6bdc2;
 $color-menu-link-hover: #666;
 $color-menu-link-active: #000;
 
-$color-success: #b7eecf;
-$color-failure: #fdb4bb;
+$color-success: darken(#b7eecf, 20%);
+$color-failure: darken(#fdb4bb, 20%);
 
 $color-tile-color1: #b8dbf2;
 $color-tile-color2: #dcc6e6;

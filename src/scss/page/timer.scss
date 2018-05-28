@@ -10,4 +10,8 @@
   &.stopped {
     color: $color-failure;
   }
+
+  &.success {
+    color: $color-success !important;
+  }
 }
