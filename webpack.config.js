@@ -49,13 +49,15 @@ module.exports = (env, argv) => {
           }
         },
         {
-          test: /\.(png|jpeg|jpg|svg)$/,
+          test: /\.(png|jpeg|jpg)$/,
+          include: [path.resolve(__dirname, "./images")],
           use: [
             {
               loader: require.resolve("url-loader"),
               options: {
                 limit: 8192,
-                name: "[name].[hash:7].[ext]"
+                name: "[name].[hash:7].[ext]",
+                publicPath: "/images/"
               }
             },
             {
@@ -72,6 +74,7 @@ module.exports = (env, argv) => {
       hot: true,
       open: true
     },
+    devtool: "cheap-source-map",
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/index.html",

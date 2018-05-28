@@ -1,17 +1,8 @@
 main {
   flex: 1;
   display: flex;
+  // margin-top: calc(100vh - 84%);
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-}
-
-#options {
-  position: absolute;
-  width: 400px;
-  height: 100vh;
-  right: 0;
-  top: 0;
-  border-left: 1px solid $color-options-border;
-  background-color: $color-options-background;
 }

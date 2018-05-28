@@ -1,0 +1,17 @@
+#timer {
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.stopped {
+    color: $color-failure;
+  }
+
+  &.success {
+    color: $color-success !important;
+  }
+}

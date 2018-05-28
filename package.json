@@ -24,7 +24,6 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^0.28.11",
-    "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "img-loader": "^3.0.0",
@@ -39,9 +38,15 @@
     "webpack-dev-server": "^3.1.4"
   },
   "babel": {
-    "presets": ["env"]
+    "presets": [
+      "env"
+    ]
   },
   "postcss": {
     "parser": false
+  },
+  "dependencies": {
+    "moment": "^2.22.1",
+    "popmotion": "^8.2.2"
   }
 }

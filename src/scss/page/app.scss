@@ -8,3 +8,8 @@ body {
   flex-flow: column nowrap;
   height: 100vh;
 }
+
+*:focus {
+  outline: none;
+  box-shadow: none;
+}

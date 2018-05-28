@@ -1,0 +1,22 @@
+#board {
+  display: grid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &.easy {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  }
+
+  &.normal {
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+  }
+  &.hard {
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(25, 1fr);
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+}
