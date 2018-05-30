@@ -40,24 +40,12 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.(html)$/,
-          use: {
-            loader: require.resolve("html-loader"),
-            options: {
-              minimize: argv.mode === "developement" ? false : true
-            }
-          }
-        },
-        {
-          test: /\.(png|jpeg|jpg)$/,
-          include: [path.resolve(__dirname, "./images")],
+          test: /\.(png|jpeg|jpg)$/i,
           use: [
             {
               loader: require.resolve("url-loader"),
               options: {
-                limit: 8192,
-                name: "[name].[hash:7].[ext]",
-                publicPath: "/images/"
+                limit: 8192
               }
             },
             {
@@ -67,6 +55,15 @@ module.exports = (env, argv) => {
               }
             }
           ]
+        },
+        {
+          test: /\.(html)$/,
+          use: {
+            loader: require.resolve("html-loader"),
+            options: {
+              minimize: argv.mode === "developement" ? false : true
+            }
+          }
         }
       ]
     },
