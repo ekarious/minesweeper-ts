@@ -27,9 +27,11 @@
   }
 
   &.flagged {
-    background-color: $color-tile-flagged !important;
-    // background: url("../../images/flag.png") no-repeat 30px 30px;
+    background-image: url("/src/images/flag.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+
   &.revealed {
     background: $color-tile-revealed !important;
     cursor: auto;
@@ -45,9 +47,8 @@
 
   &.failure {
     background-color: $color-failure !important;
-  }
-
-  &.mined {
-    background-color: red;
+    background-image: url("/src/images/mine.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
