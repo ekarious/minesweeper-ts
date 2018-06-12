@@ -4,11 +4,9 @@ This is a part of The Mine Sweeper Challenge !
 
 The challenge consist of making this game in different ways.
 
-* [x] Javascript (Vanilla)
-* [ ] React
-* [ ] Angular
-* [ ] Vue
-* [ ] Unity (C#)
+- [x] Javascript (Vanilla)
+- [ ] React
+- [ ] Unity (C#)
 
 More Info soon.
 
