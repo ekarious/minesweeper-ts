@@ -1,4 +1,3 @@
-import { ECHILD } from "constants";
 
 /**
  * The Tile class
