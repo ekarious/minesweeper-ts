@@ -1,7 +1,7 @@
 {
   "name": "mine-sweeper-javascript",
   "version": "1.0.0",
-  "description": "Mine Sweeper Challenge - Javascript ES6",
+  "description": "Mine Sweeper - Javascript ES6",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,9 +12,17 @@
     "type": "git",
     "url": "git+https://github.com/Kitefr/mine-sweeper-javascript.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "javascript",
+    "minesweeper",
+    "es6",
+    "webpack4"
+  ],
+  "author": {
+    "name": "Yann Schmidt",
+    "email": "contact@yannschmidt.com"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kitefr/mine-sweeper-javascript/issues"
   },
