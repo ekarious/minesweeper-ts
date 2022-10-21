@@ -1,22 +1,27 @@
 import Tile from "./Tile";
 
-const counter = document.querySelector("#counter");
-const timer = document.querySelector("#timer");
+const counter = document.querySelector("#counter")!;
+const timer = document.querySelector("#timer")!;
 
-/**
- * The board class
- *
- * @export
- * @class Board
- */
-export default class Board {
-  constructor(x = 10, y = 10, parent = undefined) {
-    this.parent = parent;
-    this.boardData = [];
-    this.element = document.querySelector("#board");
+class Board {
+  element: Element = document.querySelector("#board")!;
+
+  size: [number, number] = [0, 0];
+  boardData: Tile[] = [];
+  mineCount: number = 0;
+
+
+  constructor() {
+    
+  }
+
+  setup(x: number, y: number) {
     this.element.classList.remove("disabled");
     this.size = [x, y];
+    this.boardData = [];
     this.mineCount = 0;
+
+    this.init();
   }
 
   init() {
@@ -37,7 +42,7 @@ export default class Board {
       tile.neighborMineCount = count;
 
       if (count > 0) {
-        tile.elementChild.innerHTML = count;
+        tile.elementChild.innerHTML = count.toString();
       } else {
         tile.element.removeChild(tile.elementChild);
       }
@@ -46,6 +51,14 @@ export default class Board {
     // Activate relative data
     timer.classList.add("active");
     counter.classList.add("active");
+  }
+
+  reset() {
+    this.size = [0, 0];
+    this.boardData = [];
+    this.mineCount = 0;
+
+    this.removeTiles();
   }
 
   removeTiles() {
@@ -96,7 +109,7 @@ export default class Board {
 
     for (let x = 0; x < maxX; x++) {
       for (let y = 0; y < maxY; y++) {
-        const tile = new Tile(x, y, this);
+        const tile = new Tile(x, y);
         tile.init();
 
         // Attach to HTML
@@ -113,8 +126,7 @@ export default class Board {
     const totalTiles = x * y;
 
     this.mineCount =
-      Math.floor(Math.random() * (totalTiles * 0.3 - totalTiles * 0.1 + 1)) +
-      totalTiles * 0.1;
+      Math.floor(Math.random() * (totalTiles * 0.3 - totalTiles * 0.1 + 1)) + totalTiles * 0.1;
   }
 
   /**
@@ -152,9 +164,10 @@ export default class Board {
         tile.element.classList.add("failure");
       }
     });
-    this.parent.setGameOver = true;
-    this.parent.stop();
+    globalThis.game.gameover();
     this.element.classList.add("disabled");
     counter.classList.add("failure");
   }
 }
+
+export default Board;
