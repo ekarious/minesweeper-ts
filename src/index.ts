@@ -1,21 +1,17 @@
-// Import CSS for webpack
-import "./scss/style.scss";
-
-// // Import images for webpack
-// import "./images/mine.png";
-// import "./images/flag.png";
-
 import Game from "./components/Game";
+import { Difficulties } from "./interfaces/difficulties";
 
 // Menu items
-const gameMenu = document.querySelector("#game-menu");
-const newGameBtn = document.querySelector("#btn-game-new");
-const abordGameBtn = document.querySelector("#btn-game-abord");
-const difficultiesSection = document.querySelector("#difficulties");
-const difficultiesBtnList = document.querySelectorAll("#difficulties button");
-const counter = document.querySelector("#counter");
+const gameMenu = document.querySelector("#game-menu")!;
+const newGameBtn = document.querySelector("#btn-game-new")!;
+const abordGameBtn = document.querySelector("#btn-game-abord")!;
+const difficultiesSection = document.querySelector("#difficulties")!;
+const difficultiesBtnList = document.querySelectorAll("#difficulties button")!;
+const counter = document.querySelector("#counter")!;
 
-const game = new Game();
+// Use var to make it global
+const game: Game = new Game();
+window.game = game;
 
 // Events
 window.addEventListener("load", () => {
@@ -35,8 +31,8 @@ window.addEventListener("load", () => {
   // Stop the game if wanted
   abordGameBtn.addEventListener("click", () => {
     if (game.isStarted) {
-      game.stop();
-      game._board.element.classList.add("disabled");
+      game.gameover();
+      game.board.element.classList.add("disabled");
       counter.classList.add("failure");
     }
   });
@@ -52,11 +48,11 @@ window.addEventListener("load", () => {
       difficultiesSection.classList.toggle("active");
 
       // Get difficulty attribute
-      const id = btn.getAttribute("id");
+      const id = btn.getAttribute("id")!;
       const difficulty = id.split("-")[2];
 
       // Init new game
-      game.init(difficulty);
+      game.new(difficulty as Difficulties);
     });
   });
 });

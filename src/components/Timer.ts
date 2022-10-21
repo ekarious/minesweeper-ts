@@ -1,34 +1,23 @@
 import moment from "moment";
 
-/**
- * The Timer class
- * In charge of starting/stoping a timer and formating it for the game.
- *
- * @export
- * @class Timer
- */
-export default class Timer {
-  constructor() {
-    this.element = document.querySelector("#timer");
-    this.time = 0;
-    this.timerID = 0;
-    this._stopped = true;
-  }
+class Timer {
+  element: Element = document.querySelector("#timer")!;
+  time: number = 0;
+  timerID: number = 0;
+  
+  _stopped: boolean = true;
 
-  get isStopped() {
+  constructor() {}
+
+  get isStopped(): boolean {
     return this._stopped;
   }
 
-  get formatted() {
+  get formatted(): string {
     return moment(this.time * 1000).format("mm:ss");
   }
 
-  /**
-   * Start the timer
-   *
-   * @memberof Game
-   */
-  start() {
+  start(): void {
     this.reset();
     this.timerID = setInterval(() => {
       this.time++;
@@ -38,12 +27,7 @@ export default class Timer {
     this.element.classList.remove("stopped");
   }
 
-  /**
-   * Stop a timer
-   *
-   * @memberof Game
-   */
-  stop() {
+  stop(): void {
     if (this.timerID > 0) {
       clearInterval(this.timerID);
     }
@@ -51,12 +35,7 @@ export default class Timer {
     this.element.classList.add("stopped");
   }
 
-  /**
-   * Reset the timer
-   *
-   * @memberof Game
-   */
-  reset() {
+  reset(): void {
     if (this.timerID > 0) {
       clearInterval(this.timerID);
     }
@@ -67,3 +46,5 @@ export default class Timer {
     this.element.innerHTML = this.formatted;
   }
 }
+
+export default Timer;
