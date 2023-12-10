@@ -1,6 +1,6 @@
-# Mine Sweeper - Javascript
+# Mine Sweeper - Typescript
 
-Mine Sweeper in Javascript ! Fully functionnal.
+Mine Sweeper in Typescript ! Fully functionnal.
 
 ## Getting Started
 
@@ -15,8 +15,8 @@ You will need NodeJS installed on your system to continue.
 Installing to work on the code is is just as simple as a few commands
 
 ```
-git clone https://github.com/Kitefr/mine-sweeper-javascript.git
-cd mine-sweeper-javascript
+git clone https://github.com/ekarious/minesweeper-ts.git
+cd minesweeper-ts
 npm install
 npm start
 ```
@@ -38,8 +38,8 @@ _Adding unit tests will be the next big step of this project._
 To just play the game, use those commands
 
 ```
-git clone https://github.com/Kitefr/mine-sweeper-javascript.git
-cd mine-sweeper-javascript
+git clone https://github.com/ekarious/minesweeper-ts.git
+cd minesweeper-ts
 npm install
 npm run build
 ```
@@ -59,7 +59,7 @@ _Coming Soon_
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning.  
+I'm using [SemVer](http://semver.org/) for versioning.  
 For the versions available, see the [releases on this repository](https://github.com/Kitefr/mine-sweeper-javascript/releases).
 
 ## License
