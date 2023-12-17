@@ -1,25 +1,27 @@
 {
-  "name": "mine-sweeper-vanilla",
-  "version": "1.1.0",
-  "description": "Mine Sweeper -Typescript",
-  "source": "src/index.html",
+  "name": "minesweeper-ts",
+  "version": "1.2.0",
+  "description": "Mine Sweeper - Typescript",
+  "type": "module",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build src/index.ts",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "test": "jest",
     "lint": "eslint",
     "check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kitefr/mine-sweeper-javascript.git"
+    "url": "git+https://github.com/Kitefr/minesweeper-ts.git"
   },
   "keywords": [
     "typescript",
     "minesweeper",
     "games",
-    "classic"
+    "classic",
+    "vite"
   ],
   "author": {
     "name": "Yann Schmidt",
@@ -27,14 +29,14 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kitefr/mine-sweeper-javascript/issues"
+    "url": "https://github.com/Kitefr/minesweeper-ts/issues"
   },
-  "homepage": "https://github.com/Kitefr/mine-sweeper-javascript#readme",
+  "homepage": "https://github.com/Kitefr/minesweeper-ts#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "@types/luxon": "^3.0.2",
     "htmlparser2": "^8.0.1",
-    "parcel": "latest"
+    "sass": "^1.69.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
   },
   "dependencies": {
     "moment": "^2.29.4"

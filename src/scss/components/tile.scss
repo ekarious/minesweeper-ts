@@ -27,7 +27,7 @@
   }
 
   &.flagged {
-    background-image: url("/src/images/flag.png");
+    background-image: url("/src/assets/images/flag.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -47,7 +47,7 @@
 
   &.failure {
     background-color: $color-failure !important;
-    background-image: url("/src/images/mine.png");
+    background-image: url("/src/assets/images/mine.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
