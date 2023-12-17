@@ -1,5 +1,5 @@
 import Game from "./components/Game";
-import { Difficulties } from "./interfaces/difficulties";
+import { Difficulty } from "./types";
 
 // Menu items
 const gameMenu = document.querySelector("#game-menu")!;
@@ -52,7 +52,7 @@ window.addEventListener("load", () => {
       const difficulty = id.split("-")[2];
 
       // Init new game
-      game.new(difficulty as Difficulties);
+      game.new(difficulty as Difficulty);
     });
   });
 });

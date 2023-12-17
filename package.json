@@ -33,12 +33,9 @@
   },
   "homepage": "https://github.com/Kitefr/minesweeper-ts#readme",
   "devDependencies": {
-    "htmlparser2": "^8.0.1",
     "sass": "^1.69.5",
     "typescript": "^5.3.3",
     "vite": "^5.0.10"
   },
-  "dependencies": {
-    "moment": "^2.29.4"
-  }
+  "dependencies": {}
 }

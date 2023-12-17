@@ -2,7 +2,7 @@ import Board from "./Board";
 import Timer from "./Timer";
 import Score from './Score';
 
-import { Difficulties } from "../interfaces/difficulties";
+import type { State, Difficulty } from '../types';
 
 const abordGameBtn = document.querySelector("#btn-game-abord")!;
 const newGameBtn = document.querySelector("#btn-game-new")!;
@@ -10,8 +10,8 @@ const difficultiesSection = document.querySelector("#difficulties")!;
 const counter = document.querySelector("#counter")!;
 
 class Game {
-  difficulty: Difficulties = Difficulties.easy;
-  state: "new" | "paused" | "ongoing" | "won" | "gameover" = "new";
+  difficulty: Difficulty = "easy";
+  state: State = "new";
   timer: Timer = new Timer();
   board: Board = new Board();
   score: Score = new Score();
@@ -20,7 +20,7 @@ class Game {
 
   constructor() {}
 
-  new(difficulty: Difficulties): void {
+  new(difficulty: Difficulty): void {
     this.state = "new";
     this.firstClick = false;
     this.timer.reset();
@@ -30,15 +30,15 @@ class Game {
 
     // Setup the game
     switch (this.difficulty) {
-      case Difficulties.easy.toLowerCase():
+      case 'easy':
         this.board.setup(10, 10);
         this.score.toWin = 10 ** 2;
         break;
-      case Difficulties.normal.toLowerCase():
+      case 'normal':
         this.board.setup(18, 18);
         this.score.toWin = 18 ** 2;
         break;
-      case Difficulties.hard.toLowerCase():
+      case 'hard':
         this.board.setup(25, 25);
         this.score.toWin = 25 ** 2;
         break;
@@ -46,7 +46,7 @@ class Game {
 
     this.board.element.classList.add(this.difficulty);
 
-    this.board.element.addEventListener("mousedown", event => {
+    this.board.element.addEventListener("mousedown", _ => {
       this.onBoardClick()
     })
   }

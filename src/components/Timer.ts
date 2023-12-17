@@ -1,5 +1,3 @@
-import moment from "moment";
-
 class Timer {
   element: Element = document.querySelector("#timer")!;
   time: number = 0;
@@ -14,7 +12,7 @@ class Timer {
   }
 
   get formatted(): string {
-    return moment(this.time * 1000).format("mm:ss");
+    return new Date(1000 * this.time).toISOString().slice(14, 19);
   }
 
   start(): void {
