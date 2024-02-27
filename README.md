@@ -1,5 +1,9 @@
 # Mine Sweeper - Typescript
 
+---
+### READ ONLY: THIS WAS MOVE TO https://github.com/ekarious/minesweepers/typescript
+---
+
 Mine Sweeper in Typescript ! Fully functionnal.
 
 ## Getting Started
