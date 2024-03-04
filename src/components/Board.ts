@@ -11,9 +11,7 @@ class Board {
   mineCount: number = 0;
 
 
-  constructor() {
-    
-  }
+  constructor() {}
 
   setup(x: number, y: number) {
     this.element.classList.remove("disabled");
@@ -28,13 +26,13 @@ class Board {
     // We need to remove the HTML tiles !
     this.removeTiles();
 
-    // Setup the board
+    // Set up the board
     this._drawBoard();
     this._nbMines();
     this._plantMines();
 
-    // let each tile calulate his own perimeter
-    this.boardData.map(tile => tile._setPerimeterTilesCoord());
+    // let each tiles calculate their own perimeter
+    this.boardData.map(tile => tile._setPerimeterTilesCoordinates());
 
     // Calculate the neighborMineCount
     this.empties.map(tile => {
@@ -76,7 +74,7 @@ class Board {
    * @memberof Board
    */
   get flags() {
-    return this.boardData.filter(tile => tile.isFlagged === true);
+    return this.boardData.filter(tile => tile.isFlagged);
   }
 
   /**
@@ -86,7 +84,7 @@ class Board {
    * @memberof Board
    */
   get mines() {
-    return this.boardData.filter(tile => tile.isMined === true);
+    return this.boardData.filter(tile => tile.isMined);
   }
 
   /**
@@ -96,7 +94,7 @@ class Board {
    * @memberof Board
    */
   get empties() {
-    return this.boardData.filter(tile => !tile.isMined === true);
+    return this.boardData.filter(tile => !tile.isMined);
   }
 
   /**
@@ -164,7 +162,7 @@ class Board {
         tile.element.classList.add("failure");
       }
     });
-    globalThis.game.gameover();
+    window.game.gameover();
     this.element.classList.add("disabled");
     counter.classList.add("failure");
   }

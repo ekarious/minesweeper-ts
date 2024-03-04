@@ -30,11 +30,11 @@ class Score {
     this.score += 1;
     counter.innerHTML = this.score.toString()
 
-    if (this.score + globalThis.game.board.mineCount === this.toWin) {
+    if (this.score + window.game.board.mineCount === this.toWin) {
       this.score = this.toWin;
       counter.innerHTML = this.score.toString();
       counter.classList.add("success");
-      globalThis.game.win();
+      window.game.win();
     }
   }
 }

@@ -4,7 +4,7 @@ import { Difficulty } from "./types";
 // Menu items
 const gameMenu = document.querySelector("#game-menu")!;
 const newGameBtn = document.querySelector("#btn-game-new")!;
-const abordGameBtn = document.querySelector("#btn-game-abord")!;
+const abortGameBtn = document.querySelector("#btn-game-abort")!;
 const difficultiesSection = document.querySelector("#difficulties")!;
 const difficultiesBtnList = document.querySelectorAll("#difficulties button")!;
 const counter = document.querySelector("#counter")!;
@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
   });
 
   // Stop the game if wanted
-  abordGameBtn.addEventListener("click", () => {
+  abortGameBtn.addEventListener("click", () => {
     if (game.isStarted) {
       game.gameover();
       game.board.element.classList.add("disabled");

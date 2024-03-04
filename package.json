@@ -1,9 +1,8 @@
 {
   "name": "minesweeper-ts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Mine Sweeper - Typescript",
   "type": "module",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -35,7 +34,6 @@
   "devDependencies": {
     "sass": "^1.69.5",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10"
-  },
-  "dependencies": {}
+    "vite": "^5.0.12"
+  }
 }

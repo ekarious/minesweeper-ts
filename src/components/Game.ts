@@ -4,7 +4,7 @@ import Score from './Score';
 
 import type { State, Difficulty } from '../types';
 
-const abordGameBtn = document.querySelector("#btn-game-abord")!;
+const abortGameBtn = document.querySelector("#btn-game-abort")!;
 const newGameBtn = document.querySelector("#btn-game-new")!;
 const difficultiesSection = document.querySelector("#difficulties")!;
 const counter = document.querySelector("#counter")!;
@@ -28,7 +28,7 @@ class Game {
 
     this.difficulty = difficulty;
 
-    // Setup the game
+    // Set up the game
     switch (this.difficulty) {
       case 'easy':
         this.board.setup(10, 10);
@@ -55,7 +55,7 @@ class Game {
     this.state = 'ongoing';
     this.timer.start();
 
-    abordGameBtn.classList.remove('hidden');
+    abortGameBtn.classList.remove('hidden');
   }
 
   win() {
@@ -68,7 +68,7 @@ class Game {
     this.timer.element.classList.add("success");
     this.state = 'won';
     this.timer.stop();
-    abordGameBtn.classList.add("hidden");
+    abortGameBtn.classList.add("hidden");
   }
 
   gameover() {
@@ -81,7 +81,7 @@ class Game {
     this.timer.element.classList.add("failure");
     this.state = 'gameover';
     this.timer.stop();
-    abordGameBtn.classList.add("hidden");
+    abortGameBtn.classList.add("hidden");
   }
 
   reset(): void {

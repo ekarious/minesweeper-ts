@@ -3,12 +3,13 @@ import Board from "./Board";
 class Tile {
   x: number;
   y: number;
-  parent: Board = globalThis.game.board;
+  // @ts-ignore
+  parent: Board = window.game.board;
 
   element: HTMLDivElement = document.createElement("div");
   elementChild: HTMLParagraphElement = document.createElement("p");
 
-  perimeterTilesCoord: {x: number, y: number }[] = [];
+  perimeterTilesCoordinates: {x: number, y: number }[] = [];
   neighborMineCount: number = 0;
 
   isRevealed: boolean = false;
@@ -47,13 +48,13 @@ class Tile {
   }
 
   get perimeterTiles(): Tile[] {
-    return this.perimeterTilesCoord.map(coord => 
-      this.parent.boardData.find((tile: Tile) => tile.x === coord.x && tile.y === coord.y)
+    return this.perimeterTilesCoordinates.map(coordinates =>
+      this.parent.boardData.find((tile: Tile) => tile.x === coordinates.x && tile.y === coordinates.y)
     );
 
   }
 
-  _setPerimeterTilesCoord() {
+  _setPerimeterTilesCoordinates() {
     const tiles = [];
 
     // In clock order
@@ -68,7 +69,7 @@ class Tile {
     tiles.push({ x: this.x - 1, y: this.y - 1 });
 
     // Check
-    this.perimeterTilesCoord = tiles.filter(
+    this.perimeterTilesCoordinates = tiles.filter(
       tile =>
         tile.x >= 0 &&
         tile.x < this.parent.size[0] &&
@@ -78,17 +79,17 @@ class Tile {
   }
 
   /**
-   * Reveal adjacents tiles
+   * Reveal adjacent tiles
    * ---
-   * Only reveal tiles in this cases:
-   * 1. The tile has no adjacents tiles with mines.
+   * Only reveal tiles in these cases:
+   * 1. The tile has no adjacent tiles with mines.
    * --> In this case, continue in recursive.
-   * 2. The tile have adjacents tiles with mines.
+   * 2. The tile have adjacent tiles with mines.
    * --> Reveal the current tile and stop.
    *
    * @memberof Tile
    */
-  _revealAdjacents(tile: Tile, recursive = true) {
+  _revealAdjacentTiles(tile: Tile, recursive = true) {
     const adjacentTiles = tile.perimeterTiles;
 
     adjacentTiles.forEach(elt => {
@@ -98,16 +99,16 @@ class Tile {
 
       elt.isRevealed = true;
       elt.element.classList.add("revealed");
-      globalThis.game.score.increment();
+      window.game.score.increment();
 
       if (elt.neighborMineCount === 0 && recursive) {
-        this._revealAdjacents(elt);
+        this._revealAdjacentTiles(elt);
       }
     });
   }
 
-  _checkAdjacentsTilesMinesOK() {
-    // If there is no nimes in adjacent tiles, do nothing.
+  _checkAdjacentTilesMinesOK() {
+    // If there is no mines in adjacent tiles, do nothing.
     if (this.neighborMineCount === 0) {
       return;
     }
@@ -115,14 +116,14 @@ class Tile {
     const adjacentTiles = this.perimeterTiles;
     const flaggedTiles = adjacentTiles.filter(tile => tile.isFlagged);
 
-    // If not enougth adjacent tiles have been flagged, do nothing.
+    // If not enough adjacent tiles have been flagged, do nothing.
     if (this.neighborMineCount === flaggedTiles.length) {
       adjacentTiles.forEach(elt => {
         if (elt.isFlagged && !elt.isMined) {
           return this.parent.revealBoardMines();
         }
 
-        this._revealAdjacents(this); // TODO: test this
+        this._revealAdjacentTiles(this); // TODO: test this
       });
     }
   }
@@ -140,14 +141,14 @@ class Tile {
     if (event.which === 1) {
       this.isRevealed = true;
       this.isFlagged = false;
-      globalThis.game.score.increment();
+      window.game.score.increment();
 
       if (this.isMined) {
         return this.parent.revealBoardMines();
       }
 
       if (this.neighborMineCount === 0) {
-        this._revealAdjacents(this);
+        this._revealAdjacentTiles(this);
       }
 
       this.element.classList.add("revealed");
@@ -161,8 +162,8 @@ class Tile {
     }
   }
 
-  onDoubleClick(event: MouseEvent) {
-    this._checkAdjacentsTilesMinesOK();
+  onDoubleClick(_: MouseEvent) {
+    this._checkAdjacentTilesMinesOK();
   }
 }
 
