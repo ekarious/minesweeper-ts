@@ -48,6 +48,7 @@ class Tile {
   }
 
   get perimeterTiles(): Tile[] {
+    // @ts-ignore
     return this.perimeterTilesCoordinates.map(coordinates => {
        return this.parent.boardData.find((tile: Tile) => tile.x === coordinates.x && tile.y === coordinates.y);
     }).filter(x => x !== undefined);
