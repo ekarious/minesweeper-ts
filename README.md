@@ -6,14 +6,6 @@ My vanilla typescript version of Mine Sweeper !
 
 - NodeJS
 
-## Installation
-
-When inside this folder
-```
-npm install
-npm run build
-```
-
 # Usage
 
 Launch the `index.html` file in the `dist/` folder in your browser.
