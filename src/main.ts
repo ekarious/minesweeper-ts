@@ -15,8 +15,6 @@ window.game = game;
 
 // Events
 window.addEventListener("load", () => {
-  // Position the menu
-
   // Open/Close menu
   newGameBtn.addEventListener("click", () => {
     newGameBtn.classList.toggle("active");

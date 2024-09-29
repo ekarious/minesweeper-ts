@@ -48,17 +48,15 @@ class Tile {
   }
 
   get perimeterTiles(): Tile[] {
-    return this.perimeterTilesCoordinates.map(coordinates =>
-      this.parent.boardData.find((tile: Tile) => tile.x === coordinates.x && tile.y === coordinates.y)
-    );
-
+    return this.perimeterTilesCoordinates.map(coordinates => {
+       return this.parent.boardData.find((tile: Tile) => tile.x === coordinates.x && tile.y === coordinates.y);
+    }).filter(x => x !== undefined);
   }
 
   _setPerimeterTilesCoordinates() {
     const tiles = [];
 
     // In clock order
-
     tiles.push({ x: this.x - 1, y: this.y });
     tiles.push({ x: this.x - 1, y: this.y + 1 });
     tiles.push({ x: this.x, y: this.y + 1 });
@@ -137,8 +135,8 @@ class Tile {
       return;
     }
 
-    // Left click
-    if (event.which === 1) {
+    // Mouse Left click
+    if (event.button === 0) {
       this.isRevealed = true;
       this.isFlagged = false;
       window.game.score.increment();
@@ -155,8 +153,8 @@ class Tile {
       this.element.classList.remove("flagged");
     }
 
-    // Right click
-    if (event.which === 3) {
+    // Mouse Right click
+    if (event.button === 2) {
       this.isFlagged = !this.isFlagged;
       this.element.classList.toggle("flagged");
     }
